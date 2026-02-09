@@ -1,6 +1,6 @@
 """
 List : Collection of multiple items stored in a single variable.
-- ordered (indexing works)
+- ordered (indexing works) [duplicates allowed]
 - mutable
 - dynamic
 - can store numbers, strings, floats, booleans, other lists

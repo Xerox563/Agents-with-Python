@@ -1,4 +1,4 @@
-# 🚀 Backend + AI Agent Engineering Roadmap
+# Backend + AI Agent Engineering Roadmap
 
 ### _FastAPI • PostgreSQL • Auth • Deployment • LLMs • LangChain • AI Agents_
 
@@ -104,5 +104,3 @@ By the end of this repo, I will have:
 ✔ A strong portfolio demonstrating backend + AI integration
 
 ---
-
-## 📁 Repository Structure (Recommended)
