@@ -92,6 +92,28 @@ int numSubarraysWithSum(vector<int> &nums, int goal)
     }
     return ans;
 }
+// Shifting Letters
+
+char shift(char ch, int k)
+{
+    return 'a' + ((ch - 'a' + k) % 26);
+}
+string shiftingLetters(string s, vector<int> &shifts)
+{
+    vector<int> temp(shifts.size());
+    temp[shifts.size() - 1] = (shifts[shifts.size() - 1]) % 26;
+    for (int i = shifts.size() - 2; i >= 0; i--)
+    {
+        temp[i] = (temp[i + 1] + shifts[i]) % 26;
+    }
+    string ans = "";
+    for (int i = 0; i < temp.size(); i++)
+    {
+        char ch = shift(s[i], temp[i]);
+        ans += ch;
+    }
+    return ans;
+}
 
 // Driver
 void solve()
