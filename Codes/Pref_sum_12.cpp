@@ -115,6 +115,70 @@ string shiftingLetters(string s, vector<int> &shifts)
     return ans;
 }
 
+// Car Pooling Problem
+bool carPooling(vector<vector<int>> &trips, int capacity)
+{
+    //     priority_queue<pair<pair<int,int>,int>, vector<pair<pair<int,int>,int>>, greater<pair<pair<int,int>,int>>> pq;
+    //     for(auto &x: trips) {
+    //         pq.push({{x[1],x[2]},x[0]});
+    //     }
+    //     int prev_e = 0;
+    //     int prev_cnt_pas = 0;
+    //     if(!pq.empty()) {
+    //         prev_e = pq.top().first.second;
+    //         prev_cnt_pas = pq.top().second;
+    //         pq.pop();
+    //     }
+
+    //     while(!pq.empty()) {
+    //         auto it = pq.top();
+    //         pq.pop();
+    //         int s = pq.top().first.first;
+    //         int e = pq.top().first.second;
+    //         int cnt_pas = pq.top().second;
+
+    //         if(e < prev_e && (cnt_pas + prev_cnt_pas < capacity)) {
+    //             return false;
+    //         }
+    //         else {
+    //             prev_e = e;
+    //             prev_cnt_pas = cnt_pas;
+    //         }
+    //     }
+    //    return true;
+
+    int maxEnd = 0;
+
+    // Finding furthest point
+    for (auto &t : trips)
+        maxEnd = max(maxEnd, t[2]);
+
+    // Difference array of size maxEnd+1
+    vector<int> diff(maxEnd + 1, 0);
+
+    // using differnce array
+    for (auto &t : trips)
+    {
+        int p = t[0];
+        int s = t[1];
+        int e = t[2];
+
+        diff[s] += p;
+        diff[e] -= p;
+    }
+
+    // Building prefix sum and checking
+    int curr = 0;
+    for (int i = 0; i <= maxEnd; i++)
+    {
+        curr += diff[i];
+        if (curr > capacity)
+            return false;
+    }
+
+    return true;
+}
+
 // Driver
 void solve()
 {
