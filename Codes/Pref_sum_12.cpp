@@ -42,7 +42,7 @@ void print(const vector<T> &v)
 }
 
 // ---------------------------
-// Main function here : Minimum length Subarray !!
+// Main function here : Contigious Subarray !!
 // ---------------------------
 bool checkSubarraySum(vector<int> &nums, int k)
 {
@@ -67,6 +67,30 @@ bool checkSubarraySum(vector<int> &nums, int k)
     }
 
     return false;
+}
+
+// Binary Subarray with sum
+int numSubarraysWithSum(vector<int> &nums, int goal)
+{
+    int n = nums.size();
+    unordered_map<int, int> mp;
+    int sum = 0;
+    int ans = 0;
+    mp[0] = 1;
+    for (int i = 0; i < n; i++)
+    {
+        sum += nums[i];
+        if (mp.count(sum - goal))
+        {
+            ans += mp[sum - goal];
+            mp[sum]++;
+        }
+        else
+        {
+            mp[sum]++;
+        }
+    }
+    return ans;
 }
 
 // Driver
