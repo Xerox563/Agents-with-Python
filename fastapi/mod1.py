@@ -116,7 +116,7 @@ Without venv, you can’t install both versions globally.
 With venv, each project gets separate dependencies, so no conflicts happen.
 
 Command:
-- python -m venv myenv
-- source myenv/bin/activate
-- deactivate
+- python -m venv venv  # creation
+- source venv/bin/activate  # activation
+- deactivate  # deactivation
 '''
