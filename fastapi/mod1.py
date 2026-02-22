@@ -82,3 +82,41 @@ long calculations
 5000 users
 at the same time, depending on server power.
 '''
+
+'''
+Fast api : Framework we write code with.
+Uvicorn : Server that runs our Fast api code
+
+:: We need Uvicorn beacuse Fast api uses ASGI and uvicorn is one os the fastest ASGI servers.
+:: uvicorn main:app
+ -- uvicorn starts
+ -- It loads your FastAPI app
+ -- It begins accepting requests
+ -- It routes them to your API functions
+'''
+
+# Package : A package is a collection of Python code someone wrote so you can reuse it.
+# pip : Pythons installer
+
+'''
+# Venv
+A virtual environment is a self-contained folder that has:
+Its own Python version
+Its own installed packages
+Its own dependencies
+This means anything you install inside a venv won’t affect your system Python or other projects.
+
+Why is venv important?
+
+Imagine you have two projects:
+Project A needs Django 4
+Project B needs Django 3
+
+Without venv, you can’t install both versions globally.
+With venv, each project gets separate dependencies, so no conflicts happen.
+
+Command:
+- python -m venv myenv
+- source myenv/bin/activate
+- deactivate
+'''
